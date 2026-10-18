@@ -1,10 +1,241 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>simples site, deploy on netlify</title>
-  </head>
-  <body>
-    <h1>created on mobile phone, using Free accounts</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarantini Pereira | Desenvolvedor & Criador</title>
+    <!-- Pico CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        /* Estilizações personalizadas sutis para complementar o Pico CSS */
+        :root {
+            --pico-primary: #10b981;
+            --pico-primary-background: #10b981;
+            --pico-primary-hover: #059669;
+            --pico-border-radius: 0.5rem;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main.container {
+            flex: 1;
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+        }
+
+        .hero {
+            padding: 2.5rem 0 1.5rem 0;
+            border-bottom: 1px solid var(--pico-muted-border-color);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-title {
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--pico-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-grid {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.8rem;
+            border-radius: 20px;
+            background-color: var(--pico-card-sectionning-background-color);
+            border: 1px solid var(--pico-muted-border-color);
+        }
+
+        .project-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+            color: var(--pico-color);
+        }
+
+        footer {
+            border-top: 1px solid var(--pico-muted-border-color);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--pico-secondary);
+        }
+
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho e Navegação -->
+    <header class="container">
+        <nav class="flex-between">
+            <ul>
+                <li><strong>taranttini.com</strong></li>
+            </ul>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="https://github.com/taranttini" target="_blank" rel="noopener">GitHub</a></li>
+                <li>
+                    <button id="themeToggle" class="theme-toggle" title="Alternar Tema">
+                        🌙 Escuro
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+
+        <!-- Seção Hero / Apresentação -->
+        <section class="hero" id="sobre">
+            <h1 class="hero-title">Tarantini Pereira</h1>
+            <p class="tagline">43 anos • Autodidata • Desenvolvedor & Entusiasta de Tecnologia</p>
+            <p>
+                Pai orgulhoso da <strong>Nicole</strong> e do <strong>Benjamin</strong>. Apaixonado por tecnologia, música e criação de aplicações web interativas e funcionais. Utilizo o código como ferramenta para construir soluções criativas e experiências significativas.
+            </p>
+            <div class="badge-grid">
+                <span class="badge">Go</span>
+                <span class="badge">C#</span>
+                <span class="badge">Python</span>
+                <span class="badge">IA</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">SQL</span>
+                <span class="badge">HTML5 & CSS3</span>
+                <span class="badge">GitHub Pages</span>
+            </div>
+        </section>
+
+        <!-- Seção de Projetos em Destaque -->
+        <section id="projetos">
+            <h2>Projetos em Destaque</h2>
+            <p>Aplicações e experimentos desenvolvidos para resolução de problemas reais e aprendizado contínuo.</p>
+
+            <div class="grid">
+                
+                <!-- Projeto Principal: Ben & Nic -->
+                <article class="project-card">
+                    <header class="flex-between">
+                        <h3 style="margin: 0;">📖 Ben & Nic</h3>
+                        <mark>Destaque</mark>
+                    </header>
+                    <p>
+                        <strong>Leitor Interativo de Histórias e Músicas Infantis</strong>
+                    </p>
+                    <p>
+                        Aplicação web desenvolvida para proporcionar uma experiência imersiva de leitura e audição de histórias e faixas musicais para os meus filhos.
+                    </p>
+                    <ul>
+                        <li><strong>Tecnologias:</strong> SQLite embarcado no navegador via <code>sql.js</code> (WASM), JavaScript puro, interface responsiva.</li>
+                        <li><strong>Recursos:</strong> Destaque dinâmico de texto sincronizado com áudio, navegação offline por dados locais.</li>
+                    </ul>
+                    <footer>
+                      <!-- aguardando o dns atualizar
+                        <a href="https://bennic.com.br" target="_blank" role="button" class="contrast">Acessar bennic.com.br</a>
+                        <a href="https://github.com/taranttini/ben_e_nic" target="_blank" role="button" class="outline">Ver Código</a>
+                      -->
+                    </footer>
+                </article>
+
+                <!-- Repositório GitHub -->
+                <article class="project-card">
+                    <header>
+                        <h3 style="margin: 0;">💻 Repositórios GitHub</h3>
+                    </header>
+                    <p>
+                        <strong>Explorações, Códigos e Estudos</strong>
+                    </p>
+                    <p>
+                        Acompanhe meus repositórios no GitHub com projetos abertos, protótipos de desenvolvimento web e scripts utilitários.
+                    </p>
+                    <ul>
+                        <li>Aplicações web completas baseadas em cliente.</li>
+                        <li>Experimentos com bibliotecas e ferramentas modernas.</li>
+                        <li>Automações e utilitários cotidianos.</li>
+                    </ul>
+                    <footer>
+                        <a href="https://github.com/taranttini" target="_blank" role="button" class="secondary">Ver Perfil no GitHub</a>
+                    </footer>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Seção de Filosofia / Sobre -->
+        <section style="margin-top: 3rem;">
+            <article>
+                <h3>Filosofia de Desenvolvimento</h3>
+                <p>
+                    Acredito em arquiteturas leves, foco na autonomia de execução direta no cliente (Client-Side First) e código limpo que não dependa desnecessariamente de infraestruturas complexas quando o navegador moderno pode resolver com alta performance.
+                </p>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <p>© <span id="year"></span> Tarantini Pereira. Construído com <a href="https://picocss.com" target="_blank" rel="noopener">Pico CSS</a> e hospedado no GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <!-- Script de alternância de Tema e Utilidades -->
+    <script>
+        // Define o ano atual no rodapé
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Alternador de tema Claro / Escuro nativo do Pico CSS
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Recupera preferências salvas ou padrão do sistema
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        let currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+        applyTheme(currentTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(currentTheme);
+            localStorage.setItem('theme', currentTheme);
+        });
+
+        function applyTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            themeToggleBtn.textContent = theme === 'dark' ? '☀️ Claro' : '🌙 Escuro';
+        }
+    </script>
+</body>
 </html>
